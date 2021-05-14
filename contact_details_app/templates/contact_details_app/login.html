@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      
+      <br><br>
+    <form action="{% url 'index' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Username</label>
+        <input type="text" name="typed_name" class="form-control" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="contact">Password</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button><br><br>
+    </form>
+
+      Didn't have a account? <a href="{% url 'signup' %}">signup</a> here
+    <br><br>
+    {% if signup %}
+  <div class="alert alert-success">
+    {{ signup }}
+  </div>
+  
+  {% endif %}
+
+    </div>
+  </body>
+</html>
